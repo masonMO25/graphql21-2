@@ -11,6 +11,7 @@ const typeDefs = gql`
     "Get a thought by id"
     thought(id: ID!): Thought
   }
+
   type Mutation {
     "Create a new profile"
     createProfile(name: String): Profile!
@@ -29,6 +30,7 @@ const typeDefs = gql`
     "Delete a thought 💭"
     deleteThought(id: ID!): Thought!
   }
+
   # This is basically a duplicate of the Mongoose schema
   type Profile {
     id: ID!
@@ -37,6 +39,7 @@ const typeDefs = gql`
     "A list of the person's programming skills 🧑‍💻"
     skills: [String]!
   }
+
   type Thought {
     id: ID!
     "The text of the thought 💭 (max 280 characters)"
@@ -48,6 +51,7 @@ const typeDefs = gql`
     "A list of comments on the thought 💭"
     comments: [Comment]!
   }
+
   type Comment {
     id: ID!
     "The text of the comment 💬 (max 280 characters)"
