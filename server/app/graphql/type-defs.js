@@ -65,3 +65,5 @@ const typeDefs = gql`
     createdAt: String!
   }
 `;
+
+export default typeDefs;
