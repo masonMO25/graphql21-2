@@ -10,7 +10,7 @@ const typeDefs = gql`
 
   type Mutation {
     "Create a new profile"
-    createProfile(name: String!, skills: [String!]!): Profile!
+    createProfile(name: String): Profile!
     "Add a skill to a profile"
     addSkill2Profile(id: ID!, skill: String!): Profile!
     "Remove a skill from a profile"
@@ -25,6 +25,6 @@ const typeDefs = gql`
     "Full name of the person 🧑‍🦰"
     name: String!
     "A list of the person's programming skills 🧑‍💻"
-    skills: [String!]!
+    skills: [String]!
   }
 `;
