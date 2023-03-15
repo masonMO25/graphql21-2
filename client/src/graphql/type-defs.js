@@ -15,3 +15,13 @@ const THOUGHTS = gql`
     }
   }
 `;
+
+const PROFILES = gql`
+  query Profiles {
+    profiles {
+      id
+      name
+      skills
+    }
+  }
+`;
