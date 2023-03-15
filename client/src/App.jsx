@@ -1,5 +1,6 @@
 import Thoughts from "./routes/thoughts";
+import Profiles from "./routes/profiles";
 
 export default function App() {
-  return <Thoughts />;
+  return <Profiles />;
 }
