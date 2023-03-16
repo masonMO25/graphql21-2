@@ -9,8 +9,14 @@ export default function Profiles() {
 
   return data.profiles.map(({ id, name, skills }) => (
     <ul key={id}>
+<<<<<<< HEAD
       <li>{name}</li>
       <li>{skills}</li>
+=======
+      <li>
+        {name} - {skills[0]}
+      </li>
+>>>>>>> 9bd16b8ea0b5d99303135e05a705b8642aea32ce
     </ul>
   ));
 }
