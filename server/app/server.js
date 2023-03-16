@@ -5,7 +5,6 @@ import cors from "cors";
 import express from "express";
 import http from "http";
 import config from "./config.js";
-import decodeUser from "./decode-user.js";
 import { resolvers, typeDefs } from "./graphql/index.js";
 
 const { port } = config;
@@ -29,12 +28,7 @@ async function init() {
   await server.start();
 
   // Specify the path where we'd like to mount our server
-  app.use(
-    "/",
-    cors(),
-    express.json(),
-    expressMiddleware(server, { context: decodeUser })
-  );
+  app.use("/", cors(), express.json(), expressMiddleware(server));
 
   // Modified server startup
   await new Promise((resolve) => httpServer.listen({ port }, resolve));
