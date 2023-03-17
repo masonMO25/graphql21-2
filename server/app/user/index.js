@@ -1,5 +1,4 @@
 import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
 import { Schema, model } from "mongoose";
 import config from "../config.js";
 import { ThoughtSchema } from "../thought/index.js";
@@ -17,14 +16,15 @@ const UserSchema = new Schema({
     required: true,
     minlength: 6,
   },
+  //  ⚠️ This is an unbounded array! It should not be embedded like this. ⚠️
   thoughts: [ThoughtSchema],
 });
 
 UserSchema.pre("save", async function (next) {
   if (this.isNew || this.isModified("password")) {
-    const saltRounds = 10;
-    this.password = await bcrypt.hash(this.password, saltRounds);
+    this.password = await bcrypt.hash(this.password, config.saltRounds);
   }
+
   next();
 });
 
