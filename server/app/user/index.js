@@ -24,6 +24,7 @@ UserSchema.pre("save", async function (next) {
   if (this.isNew || this.isModified("password")) {
     this.password = await bcrypt.hash(this.password, config.saltRounds);
   }
+
   next();
 });
 
