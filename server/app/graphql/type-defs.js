@@ -29,6 +29,12 @@ const typeDefs = gql`
     deleteCommentFromThought(thoughtId: ID!, commentId: ID!): Thought!
     "Delete a thought 💭"
     deleteThought(id: ID!): Thought!
+    "Create a new User"
+    createUser(username: String!, password: String!): CreateUserResponse!
+  }
+
+  type CreateUserResponse {
+    jwt: ID!
   }
 
   # This is basically a duplicate of the Mongoose schema
@@ -63,6 +69,12 @@ const typeDefs = gql`
     # but that is beyond the scope!
     # https://www.apollographql.com/docs/apollo-server/schema/custom-scalars/#example-the-date-scalar
     createdAt: String!
+  }
+
+  type User {
+    id: ID!
+    username: String!
+    password: Sting!
   }
 `;
 
