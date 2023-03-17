@@ -15,4 +15,5 @@ export default {
   },
   mongoURL: process.env.MONGO_URL,
   port: process.env.PORT || 4000,
+  saltRounds: process.env.SALT_ROUNDS || 10,
 };
